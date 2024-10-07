@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envy</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./Library/System Icons/envy.svg" type="image/x-icon">
+  <style>
+    html,
+    body {
+      background: #000;
+      user-select: none;
+    }
+  </style>
+  <style id="TEMP_STYLE">
+    .loading {
+      /* loader will cover the screen */
+      background: #0009;
+      backdrop-filter: blur(30px) contrast(1.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      transition: backdrop-filter;
+      animation: fadeIn 0.25s linear forwards;
+      pointer-events: none;
+    }
+
+    .loading .fadeOut {
+      backdrop-filter: blur(0) contrast(1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .fadeOut {
+      animation: fadeOut 0.5s linear forwards;
+    }
+
+    .fadeOutSlow {
+      animation: fadeOut 0.5s linear forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <audio src="Library/System Audio/boot.mp3"></audio>
+  <div id="loading" class="loading">
+    <img src="Library/System Icons/mlogo.png" height="50" />
+    <br><br><br>
+    <svg class="spinner" viewBox="0 0 16 16" width="29" height="29" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        path {
+          animation: spinner 3s ease-in-out infinite;
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+          fill: none;
+          stroke-width: 2;
+          stroke-miterlimit: 10;
+          stroke-linecap: round;
+          transform-origin: 50% 50%;
+          stroke: #e7e9ec;
+        }
+
+        @keyframes spinner {
+          0% {
+            stroke-dasharray: 0, 200;
+            stroke-dashoffset: 0;
+            transform: rotate(0deg);
+          }
+
+          100% {
+            stroke-dasharray: 130, 200;
+            stroke-dashoffset: -43.9;
+            transform: rotate(-360deg);
+          }
+        }
+      </style>
+      <path d="M8 1A1 1 0 008 15 1 1 0 008 1"></path>
+    </svg>
+  </div>
+  <script type="module" src="Core.js"></script>
+  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+  <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+  <script type="module" src="./Library/Subsystems/Pluto/core.js"></script>
+</body>
+
+</html>
